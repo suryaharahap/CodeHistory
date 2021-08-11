@@ -11,7 +11,7 @@ struct Game {
   private (set) var currentQuestionIndex = 0
   private (set) var guesses = [Question: Int]()
   private (set) var isOver = false
-  private let questions = Question.allQuestions.shuffled()
+  private let questions = Question.allQuestion.shuffled()
   
   var guessCount: (correct: Int, incorrect: Int) {
     var count: (correct: Int, incorrect: Int) = (0, 0)
@@ -38,7 +38,7 @@ struct Game {
   }
   
   mutating func updateGameStatus() {
-    if currentQuestion < questions.count - 1 {
+    if currentQuestionIndex < questions.count - 1 {
       currentQuestionIndex += 1
     } else {
       isOver = true

@@ -15,11 +15,16 @@ struct WelcomeView: View {
         GameColor.main.ignoresSafeArea()
         VStack {
           VStack(alignment: .leading, spacing: 0) {
-            Text("Select the correct answers to the following questions.")
+            Text("Welcome to our Game Question!")
               .font(.largeTitle)
               .bold()
               .multilineTextAlignment(.leading)
               .padding()
+            Text("Select the correct answers to the following questions.")
+              .font(.subheadline)
+              .bold()
+              .multilineTextAlignment(.leading)
+              .padding(.horizontal)
             
           }
           Spacer()

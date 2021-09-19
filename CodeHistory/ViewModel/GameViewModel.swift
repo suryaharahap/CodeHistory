@@ -16,7 +16,7 @@ class GameViewModel: ObservableObject {
   }
   
   var questionProgressText: String {
-    "\(game.currentQuestionIndex + 1) \(game.numberOfQuestions)"
+    "\(game.currentQuestionIndex + 1) / \(game.numberOfQuestions)"
   }
   
   var guessWasMade: Bool {
@@ -25,6 +25,18 @@ class GameViewModel: ObservableObject {
     } else {
       return false
     }
+  }
+  
+  var gameIsOver: Bool {
+    game.isOver
+  }
+  
+  var correctGuesses: Int {
+    game.guessCount.correct
+  }
+  
+  var incorrectGuesses: Int {
+    game.guessCount.incorrect
   }
   
   func makeGuess(atIndex index: Int) {
@@ -40,7 +52,7 @@ class GameViewModel: ObservableObject {
       if guessedIndex != optionIndex {
         return GameColor.main
       } else if guessedIndex == currentQuestion.correctAnswerIndex {
-        return GameColor.incorrectGuess
+        return GameColor.correctGuess
       } else {
         return GameColor.incorrectGuess
       }
